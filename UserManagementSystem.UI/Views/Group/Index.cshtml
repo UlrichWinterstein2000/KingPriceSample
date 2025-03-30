@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - UserManagementSystem.UI</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/all.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/brands.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/fontawesome.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/regular.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/solid.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/svg-with-js.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/v4-font-face.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/v4-shims.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/v5-font-face.min.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/UserManagementSystem.UI.styles.css" asp-append-version="true" />
+</head>
+
+@{
+    ViewData["Title"] = "Group List";
+}
+@model List<UserManagementSystem.UI.Models.Group>
+
+
+<h2>Group List</h2>
+<a asp-action="Create" class="btn btn-sm btn-success"><i class="fa-solid fa-plus me-1"></i>Add Group</a>
+
+<table class="table table-responsive table-hover w-100">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Users</th>
+            <th>Permissions</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Group in Model)
+        {
+            <tr>
+                <td>@Group.Name</td>
+                <td>
+                    <ul>
+                        @foreach (var user in Group.UserGroups)
+                        {
+                            <li>@user.User.FirstName @user.User.LastName</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var permission in Group.GroupPermissions)
+                        {
+                            <li>@permission.Permission.Name</li>
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@Group.Id" class="btn btn-sm btn-secondary">
+                        <i class="fa-solid fa-pen me-1"></i>Edit
+                    </a>
+                    <a asp-action="Delete" asp-route-id="@Group.Id" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?');">
+                        <i class="fa-solid fa-trash me-1"></i>Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

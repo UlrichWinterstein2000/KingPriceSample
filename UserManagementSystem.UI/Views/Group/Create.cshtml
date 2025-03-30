@@ -1,0 +1,24 @@
+﻿<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v6.1.1/css/all.css">
+<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/all.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/brands.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/fontawesome.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/regular.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/solid.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/svg-with-js.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/v4-font-face.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/v4-shims.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/css/v5-font-face.min.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/UserManagementSystem.UI.styles.css" asp-append-version="true" />
+
+@model UserManagementSystem.UI.Models.Group
+
+<h2>Add Group</h2>
+<form asp-action="Create" method="post">
+    <div class="form-group mb-2">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk me-1"></i>Save</button>
+</form>
