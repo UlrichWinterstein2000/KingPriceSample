@@ -16,14 +16,12 @@ namespace UserManagementSystem.API.Controllers
             _context = context;
         }
 
-        // GET: api/user
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetUsers()
         {
             return await _context.Users.ToListAsync();
         }
 
-        // GET: api/user/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
         {
@@ -35,7 +33,6 @@ namespace UserManagementSystem.API.Controllers
             return user;
         }
 
-        // POST: api/user
         [HttpPost]
         public async Task<ActionResult<User>> CreateUser(User user)
         {
@@ -44,7 +41,6 @@ namespace UserManagementSystem.API.Controllers
             return CreatedAtAction(nameof(GetUser), new { id = user.Id }, user);
         }
 
-        // PUT: api/user/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateUser(int id, User user)
         {
@@ -74,7 +70,6 @@ namespace UserManagementSystem.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/user/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {
@@ -90,7 +85,6 @@ namespace UserManagementSystem.API.Controllers
             return NoContent();
         }
 
-        // GET: api/user/count
         [HttpGet("count")]
         public async Task<ActionResult<int>> GetUserCount()
         {
@@ -98,7 +92,6 @@ namespace UserManagementSystem.API.Controllers
             return Ok(count);
         }
 
-        // GET: api/user/groupcount
         [HttpGet("groupcount")]
         public async Task<ActionResult<IEnumerable<object>>> GetUsersPerGroupCount()
         {

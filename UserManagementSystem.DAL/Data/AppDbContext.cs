@@ -15,7 +15,6 @@ namespace UserManagementSystem.DAL.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // User-Group Many-to-Many Relationship
             modelBuilder.Entity<UserGroup>()
                 .HasKey(ug => new { ug.UserId, ug.GroupId });
 
@@ -29,7 +28,6 @@ namespace UserManagementSystem.DAL.Data
                 .WithMany(g => g.UserGroups)
                 .HasForeignKey(ug => ug.GroupId);
 
-            // Group-Permission Many-to-Many Relationship
             modelBuilder.Entity<GroupPermission>()
                 .HasKey(gp => new { gp.GroupId, gp.PermissionId });
 

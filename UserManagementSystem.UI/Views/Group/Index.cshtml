@@ -44,17 +44,17 @@
                 <td>@Group.Name</td>
                 <td>
                     <ul>
-                        @foreach (var user in Group.UserGroups)
+                        @foreach (var user in Group.UserGroups!)
                         {
-                            <li>@user.User.FirstName @user.User.LastName</li>
+                            <li>@user.User?.FirstName @user.User?.LastName</li>
                         }
                     </ul>
                 </td>
                 <td>
                     <ul>
-                        @foreach (var permission in Group.GroupPermissions)
+                        @foreach (var permission in Group.GroupPermissions!)
                         {
-                            <li>@permission.Permission.Name</li>
+                            <li>@permission.Permission?.Name</li>
                         }
                     </ul>
                 </td>

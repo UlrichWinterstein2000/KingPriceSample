@@ -1,9 +1,7 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// services
 builder.Services.AddControllersWithViews();
 
-// HttpClient
 builder.Services.AddHttpClient("UserApi", client =>
 {
     client.BaseAddress = new Uri("http://localhost:5082/api/"); 
@@ -11,7 +9,6 @@ builder.Services.AddHttpClient("UserApi", client =>
 
 var app = builder.Build();
 
-// HTTP request pipeline
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

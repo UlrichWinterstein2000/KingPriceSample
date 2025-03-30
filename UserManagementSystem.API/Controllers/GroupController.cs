@@ -18,7 +18,6 @@ namespace UserManagementSystem.API.Controllers
             _context = context;
         }
 
-        // GET: api/group
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Group>>> GetGroups()
         {
@@ -30,7 +29,6 @@ namespace UserManagementSystem.API.Controllers
             .ToListAsync();
         }
 
-        // GET: api/group/5
         [HttpGet("{id}")]
         public async Task<ActionResult<UpdateGroupDTO>> GetGroup(int id)
         {
@@ -45,12 +43,9 @@ namespace UserManagementSystem.API.Controllers
                 return NotFound();
             }
 
-            //group.AvailablePermissions = await _context.Permissions.ToListAsync();
-            //group.AvailableUsers = await _context.Users.ToListAsync();
             return updateGroupDTO;
         }
 
-        // POST: api/group
         [HttpPost]
         public async Task<ActionResult<Group>> CreateGroup(Group group)
         {
@@ -59,7 +54,6 @@ namespace UserManagementSystem.API.Controllers
             return CreatedAtAction(nameof(GetGroup), new { id = group.Id }, group);
         }
 
-        // PUT: api/group/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateGroup(int id, [FromBody] UpdateGroupDTO updateGroupDTO)
         {
@@ -133,7 +127,6 @@ namespace UserManagementSystem.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/group/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteGroup(int id)
         {
@@ -149,7 +142,6 @@ namespace UserManagementSystem.API.Controllers
             return NoContent();
         }
 
-        // GET: api/group/count
         [HttpGet("count")]
         public async Task<ActionResult<int>> GetGroupCount()
         {

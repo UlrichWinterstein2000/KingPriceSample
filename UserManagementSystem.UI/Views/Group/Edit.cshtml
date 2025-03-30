@@ -23,18 +23,17 @@
         <input asp-for="Name" class="form-control" />
     </div>
 
-    <!-- Permissions Checkbox List -->
     <div class="form-group mb-3">
         <label>Permissions</label>
         <div>
-            @foreach (var permission in Model.AvailablePermissions)
+            @foreach (var permission in Model.AvailablePermissions!)
             {
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input"
                            id="permission_@permission.Id"
                            name="SelectedPermissions"
                            value="@permission.Id"
-                    @(Model.SelectedPermissions.Contains(@permission.Id) ? "checked" : "") />
+                    @(Model.SelectedPermissions!.Contains(@permission.Id) ? "checked" : "") />
                     <label class="form-check-label" for="permission_@permission.Id">
                         @permission.Name
                     </label>
@@ -42,18 +41,17 @@
             }
         </div>
     </div>
-    <!-- Users Checkbox List -->
     <div class="form-group mb-3">
         <label>Users</label>
         <div>
-            @foreach (var user in Model.AvailableUsers)
+            @foreach (var user in Model.AvailableUsers!)
             {
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input"
                            id="user_@user.Id"
                            name="SelectedUsers"
                            value="@user.Id"
-                    @(Model.SelectedUsers.Contains(@user.Id) ? "checked" : "") />
+                    @(Model.SelectedUsers!.Contains(@user.Id) ? "checked" : "") />
                     <label class="form-check-label" for="user_@user.Id">
                         @user.FirstName  @user.LastName
                     </label>

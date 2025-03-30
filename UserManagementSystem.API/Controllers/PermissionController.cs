@@ -16,14 +16,12 @@ namespace UserManagementSystem.API.Controllers
             _context = context;
         }
 
-        // GET: api/permission
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Permission>>> GetPermissions()
         {
             return await _context.Permissions.ToListAsync();
         }
 
-        // GET: api/permission/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Permission>> GetPermission(int id)
         {
@@ -35,7 +33,6 @@ namespace UserManagementSystem.API.Controllers
             return permission;
         }
 
-        // POST: api/permission
         [HttpPost]
         public async Task<ActionResult<Permission>> CreatePermission(Permission permission)
         {
@@ -44,7 +41,6 @@ namespace UserManagementSystem.API.Controllers
             return CreatedAtAction(nameof(GetPermission), new { id = permission.Id }, permission);
         }
 
-        // PUT: api/permission/5
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdatePermission(int id, Permission permission)
         {
@@ -74,7 +70,6 @@ namespace UserManagementSystem.API.Controllers
             return NoContent();
         }
 
-        // DELETE: api/permission/5
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePermission(int id)
         {
@@ -90,7 +85,6 @@ namespace UserManagementSystem.API.Controllers
             return NoContent();
         }
 
-        // GET: api/permission/count
         [HttpGet("count")]
         public async Task<ActionResult<int>> GetPermissionCount()
         {
